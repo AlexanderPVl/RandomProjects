@@ -11,15 +11,15 @@ template<class T>
 class Stack
 {
 public:
-	Stack();                            // конструктор по умолчанию
-	Stack(const Stack<T> &other_stack); // конструктор копирования
-	~Stack();                           // деструктор
-	inline void push(const T &value);   // метод добавления элементов
-	inline T pop();                     // метод удаления элемента
-	void print_stack();                 // вывод стека на экран
-	inline int get_stack_size() const;  // возвращение размера стека
-	inline T* get_ptr() const;          // возвращает указатель на стек
-	inline int get_top() const;         // возвращает номер текущего элемента в стеке
+	Stack();                            // РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ
+	Stack(const Stack<T> &other_stack); // РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РєРѕРїРёСЂРѕРІР°РЅРёСЏ
+	~Stack();                           // РґРµСЃС‚СЂСѓРєС‚РѕСЂ
+	inline void push(const T &value);   // РјРµС‚РѕРґ РґРѕР±Р°РІР»РµРЅРёСЏ СЌР»РµРјРµРЅС‚РѕРІ
+	inline T pop();                     // РјРµС‚РѕРґ СѓРґР°Р»РµРЅРёСЏ СЌР»РµРјРµРЅС‚Р°
+	void print_stack();                 // РІС‹РІРѕРґ СЃС‚РµРєР° РЅР° СЌРєСЂР°РЅ
+	inline int get_stack_size() const;  // РІРѕР·РІСЂР°С‰РµРЅРёРµ СЂР°Р·РјРµСЂР° СЃС‚РµРєР°
+	inline T* get_ptr() const;          // РІРѕР·РІСЂР°С‰Р°РµС‚ СѓРєР°Р·Р°С‚РµР»СЊ РЅР° СЃС‚РµРє
+	inline int get_top() const;         // РІРѕР·РІСЂР°С‰Р°РµС‚ РЅРѕРјРµСЂ С‚РµРєСѓС‰РµРіРѕ СЌР»РµРјРµРЅС‚Р° РІ СЃС‚РµРєРµ
 	inline T* begin() const;
 	inline T* end() const;
 
@@ -28,64 +28,64 @@ public:
 	void write_to_file(const char* file_name);
 	void read_from_file(const char* file_name);
 
-	T* operator * ();                   // оператор возвращения указателя на последний элемент в стеке
+	T* operator * ();                   // РѕРїРµСЂР°С‚РѕСЂ РІРѕР·РІСЂР°С‰РµРЅРёСЏ СѓРєР°Р·Р°С‚РµР»СЏ РЅР° РїРѕСЃР»РµРґРЅРёР№ СЌР»РµРјРµРЅС‚ РІ СЃС‚РµРєРµ
 	bool operator == (Stack& st);
 
 	//typedef T* pub_iterator;
 private:
-	T *stack_ptr;                       // указатель на стек
-	const int size;                     // максимальное количество элементов в стеке
-	int top;                            // номер текущего элемента стека
-	T* iterator;                        // итератор хранит указатель на последний элемент + 1
+	T *stack_ptr;                       // СѓРєР°Р·Р°С‚РµР»СЊ РЅР° СЃС‚РµРє
+	const int size;                     // РјР°РєСЃРёРјР°Р»СЊРЅРѕРµ РєРѕР»РёС‡РµСЃС‚РІРѕ СЌР»РµРјРµРЅС‚РѕРІ РІ СЃС‚РµРєРµ
+	int top;                            // РЅРѕРјРµСЂ С‚РµРєСѓС‰РµРіРѕ СЌР»РµРјРµРЅС‚Р° СЃС‚РµРєР°
+	T* iterator;                        // РёС‚РµСЂР°С‚РѕСЂ С…СЂР°РЅРёС‚ СѓРєР°Р·Р°С‚РµР»СЊ РЅР° РїРѕСЃР»РµРґРЅРёР№ СЌР»РµРјРµРЅС‚ + 1
 };
 
 template<class T>
 Stack<T>::Stack() : size(100){
-	stack_ptr = new T[size];            // выделить память под стек
+	stack_ptr = new T[size];            // РІС‹РґРµР»РёС‚СЊ РїР°РјСЏС‚СЊ РїРѕРґ СЃС‚РµРє
 	//stack_ptr = nullptr;
-	top = 0;                            // инициализируем текущий элемент нулем;
+	top = 0;                            // РёРЅРёС†РёР°Р»РёР·РёСЂСѓРµРј С‚РµРєСѓС‰РёР№ СЌР»РµРјРµРЅС‚ РЅСѓР»РµРј;
 	iterator = stack_ptr;
 }
 
 template<class T>
-Stack<T>::Stack(const Stack<T> &other_stack) : size(other_stack.size)    // конструктор копирования
+Stack<T>::Stack(const Stack<T> &other_stack) : size(other_stack.size)    // РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РєРѕРїРёСЂРѕРІР°РЅРёСЏ
 {
 	//size = other_stack.size;
-	stack_ptr = new T[size];                    // выделить память под новый стек
+	stack_ptr = new T[size];                    // РІС‹РґРµР»РёС‚СЊ РїР°РјСЏС‚СЊ РїРѕРґ РЅРѕРІС‹Р№ СЃС‚РµРє
 	top = other_stack.get_top();
-	iterator = other_stack.iterator;            // итератор хранит указатель на последний элемент + 1
+	iterator = other_stack.iterator;            // РёС‚РµСЂР°С‚РѕСЂ С…СЂР°РЅРёС‚ СѓРєР°Р·Р°С‚РµР»СЊ РЅР° РїРѕСЃР»РµРґРЅРёР№ СЌР»РµРјРµРЅС‚ + 1
 
 	for (int ix = 0; ix < top; ix++)
 		stack_ptr[ix] = other_stack.get_ptr()[ix];
 }
 
 template<class T>
-Stack<T>::~Stack()        // деструктор
+Stack<T>::~Stack()        // РґРµСЃС‚СЂСѓРєС‚РѕСЂ
 {
 	iterator = nullptr;
 	top = 0;
-	delete[] stack_ptr;    // удаляем стек
+	delete[] stack_ptr;    // СѓРґР°Р»СЏРµРј СЃС‚РµРє
 }
 
 template<class T>
-inline void Stack<T>::push(const T &value)     // поместить элемент в вершину стека
-{                                   // проверяем размер стека
-	assert(top < size);             // номер текущего элемента должен быть меньше размера стека
+inline void Stack<T>::push(const T &value)     // РїРѕРјРµСЃС‚РёС‚СЊ СЌР»РµРјРµРЅС‚ РІ РІРµСЂС€РёРЅСѓ СЃС‚РµРєР°
+{                                   // РїСЂРѕРІРµСЂСЏРµРј СЂР°Р·РјРµСЂ СЃС‚РµРєР°
+	assert(top < size);             // РЅРѕРјРµСЂ С‚РµРєСѓС‰РµРіРѕ СЌР»РµРјРµРЅС‚Р° РґРѕР»Р¶РµРЅ Р±С‹С‚СЊ РјРµРЅСЊС€Рµ СЂР°Р·РјРµСЂР° СЃС‚РµРєР°
 	*(iterator++) = value;
 	top++;
 }
 
 template<class T>
-inline T Stack<T>::pop()    // удалить элемент из вершины стека и вернуть его
-{	                        // проверяем размер стека
-	assert(top > 0);        // номер текущего элемента должен быть больше 0
+inline T Stack<T>::pop()    // СѓРґР°Р»РёС‚СЊ СЌР»РµРјРµРЅС‚ РёР· РІРµСЂС€РёРЅС‹ СЃС‚РµРєР° Рё РІРµСЂРЅСѓС‚СЊ РµРіРѕ
+{	                        // РїСЂРѕРІРµСЂСЏРµРј СЂР°Р·РјРµСЂ СЃС‚РµРєР°
+	assert(top > 0);        // РЅРѕРјРµСЂ С‚РµРєСѓС‰РµРіРѕ СЌР»РµРјРµРЅС‚Р° РґРѕР»Р¶РµРЅ Р±С‹С‚СЊ Р±РѕР»СЊС€Рµ 0
 	--top;
 
-	return *(--iterator);   // удаляем элемент из стека
+	return *(--iterator);   // СѓРґР°Р»СЏРµРј СЌР»РµРјРµРЅС‚ РёР· СЃС‚РµРєР°
 }
 
 template<class T>
-void Stack<T>::print_stack()    // вывод стека на экран
+void Stack<T>::print_stack()    // РІС‹РІРѕРґ СЃС‚РµРєР° РЅР° СЌРєСЂР°РЅ
 {
 	int i;
 	/*for (T it : *this){
@@ -99,13 +99,13 @@ void Stack<T>::print_stack()    // вывод стека на экран
 }
 
 template<class T>
-inline int Stack<T>::get_stack_size() const { return size; } // получить размер стека
+inline int Stack<T>::get_stack_size() const { return size; } // РїРѕР»СѓС‡РёС‚СЊ СЂР°Р·РјРµСЂ СЃС‚РµРєР°
 
 template<class T>
-inline T* Stack<T>::get_ptr() const{ return stack_ptr; }     // получить указатель на стек
+inline T* Stack<T>::get_ptr() const{ return stack_ptr; }     // РїРѕР»СѓС‡РёС‚СЊ СѓРєР°Р·Р°С‚РµР»СЊ РЅР° СЃС‚РµРє
 
 template<class T>
-inline int Stack<T>::get_top() const{ return top; }          // получить номер текущего элемента в стеке
+inline int Stack<T>::get_top() const{ return top; }          // РїРѕР»СѓС‡РёС‚СЊ РЅРѕРјРµСЂ С‚РµРєСѓС‰РµРіРѕ СЌР»РµРјРµРЅС‚Р° РІ СЃС‚РµРєРµ
 
 template<class T>
 inline T* Stack<T>::begin() const{ return stack_ptr; }
@@ -145,7 +145,7 @@ void Stack<T>::read_from_file(const char* file_name){
 }
 
 template<class T>
-T* Stack<T>::operator * (){ return iterator - 1; } // оператор возвращения указателя на последний элемент в стеке
+T* Stack<T>::operator * (){ return iterator - 1; } // РѕРїРµСЂР°С‚РѕСЂ РІРѕР·РІСЂР°С‰РµРЅРёСЏ СѓРєР°Р·Р°С‚РµР»СЏ РЅР° РїРѕСЃР»РµРґРЅРёР№ СЌР»РµРјРµРЅС‚ РІ СЃС‚РµРєРµ
 
 template<class T>
 bool Stack<T>::operator == (Stack& st){
