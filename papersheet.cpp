@@ -8,13 +8,13 @@ PaperSheet::PaperSheet(){
 	coord_y = 0;
 }
 
-// Конструктор инициализации
+// РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РёРЅРёС†РёР°Р»РёР·Р°С†РёРё
 PaperSheet::PaperSheet(float wid, float hei, double thi, float x, float y){
 	set_dim(wid, hei, thi);
 	set_coord(x, y);
 }
 
-// Конструктор копирования
+// РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РєРѕРїРёСЂРѕРІР°РЅРёСЏ
 PaperSheet::PaperSheet(const PaperSheet &other){
 	width = other.width;
 	height = other.height;
@@ -24,27 +24,27 @@ PaperSheet::PaperSheet(const PaperSheet &other){
 	//cout << "\nClass is copied\n";
 }
 
-// Селектор класса
+// РЎРµР»РµРєС‚РѕСЂ РєР»Р°СЃСЃР°
 void PaperSheet::set_dim(float wid, float hei, double thi){
 	width = wid;
 	height = hei;
 	thick = thi;
 }
 
-// Селектор класса
+// РЎРµР»РµРєС‚РѕСЂ РєР»Р°СЃСЃР°
 void PaperSheet::set_coord(float x, float y){
 	coord_x = x;
 	coord_y = y;
 }
 
-// Модификкатор класса
+// РњРѕРґРёС„РёРєРєР°С‚РѕСЂ РєР»Р°СЃСЃР°
 float PaperSheet::get_dim_w(){ return width; }
 
 float PaperSheet::get_dim_h(){ return height; }
 
 double PaperSheet::get_dim_t(){ return thick; }
 
-// Модификатор класса
+// РњРѕРґРёС„РёРєР°С‚РѕСЂ РєР»Р°СЃСЃР°
 float PaperSheet::get_coord_x(){ return coord_x; }
 
 float PaperSheet::get_coord_y(){ return coord_y; }
