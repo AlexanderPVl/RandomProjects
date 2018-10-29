@@ -6,14 +6,14 @@
 using namespace std;
 
 class PaperSheet {
-public:	 // спецификатор доступа public
-	PaperSheet();	// Конструктор по умолчанию
-	PaperSheet(float wid, float hei, double thi, float x, float y);	   // Конструктор инициализации
-	PaperSheet(const PaperSheet &other);    // Конструктор копирования
-	void set_dim(float wid, float hei, double thi);	// Селектор класса
-	void set_coord(float x, float y);	// Селектор класса
+public:	 // СЃРїРµС†РёС„РёРєР°С‚РѕСЂ РґРѕСЃС‚СѓРїР° public
+	PaperSheet();	// РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ
+	PaperSheet(float wid, float hei, double thi, float x, float y);	   // РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РёРЅРёС†РёР°Р»РёР·Р°С†РёРё
+	PaperSheet(const PaperSheet &other);    // РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РєРѕРїРёСЂРѕРІР°РЅРёСЏ
+	void set_dim(float wid, float hei, double thi);	// РЎРµР»РµРєС‚РѕСЂ РєР»Р°СЃСЃР°
+	void set_coord(float x, float y);	// РЎРµР»РµРєС‚РѕСЂ РєР»Р°СЃСЃР°
 
-	// Модификатор класса
+	// РњРѕРґРёС„РёРєР°С‚РѕСЂ РєР»Р°СЃСЃР°
 	float get_dim_w();
 	float get_dim_h();
 	double get_dim_t();
@@ -26,7 +26,7 @@ public:	 // спецификатор доступа public
 
 	PaperSheet& operator = (const PaperSheet& ps);
 	bool operator == (const PaperSheet& ps);
-private: // спецификатор доступа private
+private: // СЃРїРµС†РёС„РёРєР°С‚РѕСЂ РґРѕСЃС‚СѓРїР° private
 	double thick;
 	float width,
 		height,
